@@ -1,12 +1,18 @@
 <?php
 
-echo "<h1>PHP Coolify Demo</h1>";
-echo "<p>Container is working successfully!</p>";
+$host = "db";
+$user = "root";
+$pass = "rootpassword";
+$db = "testdb";
 
-echo "<hr>";
+$conn = new mysqli($host, $user, $pass, $db);
 
-echo "Server Info:<br>";
-echo "PHP Version: " . phpversion() . "<br>";
-echo "Server Time: " . date("Y-m-d H:i:s");
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+
+echo "<h1>PHP + MySQL via Docker & Coolify</h1>";
+echo "Connected successfully to MySQL database.";
 
 ?>
+
